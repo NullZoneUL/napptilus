@@ -1,8 +1,5 @@
 import App from '@components/app';
-import pagesConfig from '@/routes/pageConfig';
-import getComponentFromRoute from './components/getComponentsFromRoute';
-//import updateMetaDescription from "./updateDescription";
-import { useEffect } from 'react';
+import getComponentFromRoute from './getComponentsFromRoute';
 import { useParams } from 'react-router-dom';
 import { Routes } from '@/routes/pageConfig';
 
@@ -13,14 +10,8 @@ const RouterManager = ({ route }: { route: RoutesType }) => {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const props: any = useParams();
 
-  useEffect(() => {
-    //TODO!! Add literals before using the code below
-    /*document.title = literals.page_title[route];
-    updateMetaDescription(literals.page_description[route]);*/
-  }, [route]);
-
   return (
-    <App {...pagesConfig[route]}>
+    <App>
       <Page {...props}></Page>
     </App>
   );

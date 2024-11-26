@@ -1,4 +1,4 @@
-import RouterManager from '@components/router/router';
+import RouterManager from '@components/router';
 import { createBrowserRouter } from 'react-router-dom';
 import { Routes } from './pageConfig';
 

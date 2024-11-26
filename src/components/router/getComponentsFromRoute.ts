@@ -12,4 +12,6 @@ const components: ComponentsInterface = {
   [Routes.error]: PageNotFound,
 };
 
-export { components };
+const getComponentFromRoute = (route: string) => components[route];
+
+export default getComponentFromRoute;
