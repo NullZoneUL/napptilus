@@ -1,3 +1,4 @@
+import Header from '@components/header';
 import { ReactNode } from 'react';
 import { ScrollRestoration } from 'react-router-dom';
 
@@ -7,6 +8,7 @@ interface AppInterface {
 
 const App = ({ children }: AppInterface) => (
   <>
+    <Header />
     <main className="page-container">{children}</main>
     <ScrollRestoration />
   </>

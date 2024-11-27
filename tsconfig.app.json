@@ -29,7 +29,9 @@
     "paths": {
       "@/*": ["src/*"],
       "@state/*": ["src/state/*"],
-      "@components/*": ["src/components/*"]
+      "@components/*": ["src/components/*"],
+      "@elements/*": ["src/elements/*"],
+      "@assets/*": ["src/assets/*"]
     }
   },
   "include": ["src"]
