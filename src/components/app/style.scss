@@ -1,0 +1,11 @@
+@use 'screen_ratios' as *;
+
+.page-container {
+  padding: 44px 10px 0 10px;
+}
+
+@media screen and (min-width: $tabletMinWidth) {
+  .page-container {
+    padding: 84px 30px 0 30px;
+  }
+}
