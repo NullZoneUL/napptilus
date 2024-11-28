@@ -1,0 +1,82 @@
+@use 'screen_ratios' as *;
+
+$inputWidth: 160px;
+$iconWidth: 20px;
+$iconPadding: 5px;
+$separator: 1px;
+
+.searcher-container {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+
+  .searcher-input-container {
+    border: 1px solid var(--np-grey);
+    border-radius: 6px;
+    width: $inputWidth;
+
+    & > input {
+      border: none;
+      vertical-align: middle;
+      width: $inputWidth - ($iconWidth + $iconPadding + $separator);
+      margin: 5px 0;
+      outline: none;
+      color: var(--np-black-light);
+    }
+
+    & > img {
+      width: $iconWidth;
+      vertical-align: middle;
+      padding-left: $iconPadding;
+      border-left: $separator solid var(--np-grey);
+    }
+  }
+}
+
+@media screen and (min-width: $tabletMinWidth) {
+  $inputWidth: 180px;
+  $iconWidth: 25px;
+  $iconPadding: 8px;
+
+  .searcher-container {
+    justify-content: flex-end;
+
+    .searcher-input-container {
+      width: $inputWidth;
+      & > input {
+        font-size: 1.2em;
+        width: $inputWidth - ($iconWidth + $iconPadding + $separator);
+      }
+
+      & > img {
+        width: $iconWidth;
+        padding-left: $iconPadding;
+        border-left-width: $separator;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: $computerMinWidth) {
+  $inputWidth: 200px;
+  $iconWidth: 30px;
+  $iconPadding: 10px;
+
+  .searcher-container {
+    justify-content: flex-end;
+
+    .searcher-input-container {
+      width: $inputWidth;
+      & > input {
+        font-size: 1.3em;
+        width: $inputWidth - ($iconWidth + $iconPadding + $separator);
+      }
+
+      & > img {
+        width: $iconWidth;
+        padding-left: $iconPadding;
+        border-left-width: $separator;
+      }
+    }
+  }
+}

@@ -1,6 +1,7 @@
 import Header from '@components/header';
 import { ReactNode } from 'react';
 import { ScrollRestoration } from 'react-router-dom';
+import './style.scss';
 
 interface AppInterface {
   children: ReactNode;
