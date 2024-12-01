@@ -1,5 +1,8 @@
 {
   "header": "Oompa Loomp's Crew",
   "search": "Search",
-  "results": "Results"
+  "results": "Results",
+  "title": "Find your Oompa Loompa",
+  "subtitle": "There are more than 100k",
+  "error": "An error occurred"
 }
