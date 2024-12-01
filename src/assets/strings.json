@@ -1,5 +1,15 @@
 {
   "header": "Oompa Loomp's Crew",
   "search": "Search",
-  "results": "Results"
+  "results": "Results",
+  "title": "Find your Oompa Loompa",
+  "subtitle": "There are more than 100k",
+  "female": "Female",
+  "male": "Male",
+  "error": {
+    "general": "An error occurred",
+    "response": "Error fetching data...",
+    "network": "Network error...",
+    "unknown": "Unknown error"
+  }
 }
