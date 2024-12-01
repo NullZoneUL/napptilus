@@ -1,5 +1,6 @@
 import InfiniteScroll from 'react-infinite-scroll-component';
 import Translations from '@assets/strings.json';
+import Item from './item';
 import { useEffect, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState, AppDispatch } from '@state/state';
@@ -25,7 +26,7 @@ const ItemList = () => {
   if (error !== null) {
     return (
       <div className="request-error">
-        <p>{Translations.error}</p>
+        <p>{Translations.error.general}</p>
       </div>
     );
   }
@@ -42,7 +43,7 @@ const ItemList = () => {
           hasMore={totalPages > currentPage}
         >
           {items?.map((item, index) => (
-            <div className={'' + index} key={'test' + index}></div>
+            <Item data={item} key={`ITEM_${item.id}_${index}`} />
           ))}
         </InfiniteScroll>
       )}

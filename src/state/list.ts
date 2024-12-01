@@ -1,4 +1,5 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
+import Translations from '@assets/strings.json';
 import { createSlice, createAsyncThunk, PayloadAction } from '@reduxjs/toolkit';
 
 interface OompaLoompaState {
@@ -29,12 +30,12 @@ export const fetchOompaLoompas = createAsyncThunk<
     const response = await fetch(`${URL}?page=${page}`);
 
     if (!response.ok) {
-      return thunkAPI.rejectWithValue('Error al cargar los datos.');
+      return thunkAPI.rejectWithValue(Translations.error.response);
     }
     const data: ItemListRoot = await response.json();
     return data;
   } catch (error) {
-    return thunkAPI.rejectWithValue('Error de red o servidor.');
+    return thunkAPI.rejectWithValue(Translations.error.network);
   }
 });
 
@@ -59,14 +60,14 @@ const oompaLoompaSlice = createSlice({
         fetchOompaLoompas.fulfilled,
         (state, action: PayloadAction<ItemListRoot>) => {
           state.loading = false;
-          state.items = action.payload.results;
+          state.items = state.items.concat(action.payload.results);
           state.currentPage = action.payload.current;
           state.totalPages = action.payload.total;
         },
       )
       .addCase(fetchOompaLoompas.rejected, (state, action) => {
         state.loading = false;
-        state.error = action.payload || 'Error desconocido.';
+        state.error = action.payload || Translations.error.unknown;
       });
   },
 });

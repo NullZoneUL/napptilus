@@ -1,0 +1,25 @@
+@use 'screen_ratios' as *;
+
+.item-element-container {
+  margin-bottom: 30px;
+
+  .item-element-info-container {
+    margin-top: 10px;
+    color: var(--np-grey-dark);
+
+    .item-element-name {
+      font-weight: bold;
+      color: black;
+    }
+
+    .item-element-profession {
+      font-style: italic;
+    }
+  }
+}
+
+@media screen and (min-width: $computerMinWidth) {
+  .item-element-container {
+    font-size: 1.2em;
+  }
+}

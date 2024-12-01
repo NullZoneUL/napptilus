@@ -9,7 +9,7 @@ declare interface Item {
   first_name: string;
   last_name: string;
   favorite: Favorite;
-  gender: string;
+  gender: 'F' | 'M';
   image: string;
   profession: string;
   email: string;
