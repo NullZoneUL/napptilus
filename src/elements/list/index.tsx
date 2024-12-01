@@ -1,18 +1,21 @@
 import InfiniteScroll from 'react-infinite-scroll-component';
 import Translations from '@assets/strings.json';
 import Item from './item';
-import { useEffect, useRef } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState, AppDispatch } from '@state/state';
 import { fetchOompaLoompas } from '@state/list';
 import './style.scss';
 
-const ItemList = () => {
+const ItemList = ({ searchValue }: { searchValue: string }) => {
   const dispatch = useDispatch<AppDispatch>();
-  const { items, loading, error, currentPage, totalPages } = useSelector(
+  const { items, error, currentPage, totalPages } = useSelector(
     (state: RootState) => state.oompaLoompas,
   );
+  const [filteredList, setFilteredList] = useState<Item[]>([]);
   const pageNumber = useRef(0);
+
+  const activeSearch = useMemo(() => searchValue !== '', [searchValue]);
 
   const fetchNewPage = () => {
     pageNumber.current++;
@@ -23,6 +26,20 @@ const ItemList = () => {
     fetchNewPage();
   }, []);
 
+  useEffect(() => {
+    if (activeSearch) {
+      setFilteredList(
+        items.filter(item => {
+          return (
+            item.first_name.toLowerCase().indexOf(searchValue) !== -1 ||
+            item.last_name.toLowerCase().indexOf(searchValue) !== -1 ||
+            item.profession.toLowerCase().indexOf(searchValue) !== -1
+          );
+        }),
+      );
+    }
+  }, [searchValue, items, activeSearch]);
+
   if (error !== null) {
     return (
       <div className="request-error">
@@ -31,18 +48,18 @@ const ItemList = () => {
     );
   }
 
-  console.log(items, loading, error, currentPage, totalPages);
+  const finalList = activeSearch ? filteredList : items;
 
   return (
     <div className="items-container">
       {items?.length > 0 && (
         <InfiniteScroll
-          dataLength={items.length}
+          dataLength={!activeSearch ? items.length : filteredList.length}
           next={fetchNewPage}
           loader={<></>}
-          hasMore={totalPages > currentPage}
+          hasMore={totalPages > currentPage && !activeSearch}
         >
-          {items?.map((item, index) => (
+          {finalList?.map((item, index) => (
             <Item data={item} key={`ITEM_${item.id}_${index}`} />
           ))}
         </InfiniteScroll>
