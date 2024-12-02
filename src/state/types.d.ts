@@ -19,8 +19,14 @@ declare interface Item {
   id: number;
 }
 
+declare interface DetailItem extends Item {
+  quota: string;
+  lastFetched: number;
+}
+
 declare interface ItemListRoot {
   current: number;
   total: number;
   results: Item[];
+  lastFetched: number;
 }

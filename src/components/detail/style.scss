@@ -1,0 +1,69 @@
+@use 'screen_ratios' as *;
+
+.oompalompa-detail-container {
+  text-align: center;
+
+  .oompalompa-detail-image {
+    width: 80%;
+    overflow: hidden;
+    margin: 0 auto;
+    margin-top: 30px;
+
+    & > img {
+      width: 100%;
+    }
+  }
+
+  .oompalompa-detail-name {
+    font-weight: bold;
+    color: black;
+    margin-top: 10px;
+  }
+
+  .oompalompa-detail-gender,
+  .oompalompa-detail-profession {
+    color: var(--np-grey-dark);
+  }
+
+  .oompalompa-detail-profession {
+    font-style: italic;
+  }
+
+  .oompalompa-detail-quota {
+    margin-top: 20px;
+  }
+}
+
+@media screen and (min-width: $tabletMinWidth) {
+  .oompalompa-detail-container {
+    font-size: 1.2em;
+  }
+}
+
+@media screen and (min-width: $computerMinWidth) {
+  $imageMargin: 30px;
+
+  .oompalompa-detail-container {
+    text-align: left;
+    font-size: 1.4em;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+
+    .oompalompa-detail-image {
+      width: 50%;
+      margin: 30px $imageMargin $imageMargin 0;
+      float: left;
+    }
+
+    .oompalompa-detail-name {
+      margin-top: 30px;
+      width: calc(50% - $imageMargin);
+      float: left;
+    }
+
+    .oompalompa-detail-quota {
+      margin-top: 40px;
+    }
+  }
+}
