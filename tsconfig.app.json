@@ -32,7 +32,8 @@
       "@components/*": ["src/components/*"],
       "@elements/*": ["src/elements/*"],
       "@assets/*": ["src/assets/*"]
-    }
+    },
+    "types": ["@testing-library/jest-dom"]
   },
   "include": ["src"]
 }
