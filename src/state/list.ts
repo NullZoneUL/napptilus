@@ -35,12 +35,13 @@ export const fetchOompaLoompas = createAsyncThunk<
 
     if (
       state.oompaLoompas.lastFetched &&
-      Date.now() - state.oompaLoompas.lastFetched < ONE_DAY
+      Date.now() - state.oompaLoompas.lastFetched < ONE_DAY &&
+      page <= state.oompaLoompas.currentPage
     ) {
       return {
         current: state.oompaLoompas.currentPage,
         total: state.oompaLoompas.totalPages,
-        results: state.oompaLoompas.items,
+        results: [],
         lastFetched: state.oompaLoompas.lastFetched,
       };
     }

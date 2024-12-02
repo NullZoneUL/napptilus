@@ -7,7 +7,7 @@ const Item = ({ data }: { data: Item }) => {
   const { image, first_name, last_name, gender, profession, id } = data;
 
   return (
-    <Link to={`${Routes.detail}/${id}`}>
+    <Link to={`/${Routes.detail}/${id}`}>
       <div className="item-element-container">
         <img src={image} />
         <div className="item-element-info-container">

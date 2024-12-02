@@ -23,8 +23,9 @@ const ItemList = ({ searchValue }: { searchValue: string }) => {
   };
 
   useEffect(() => {
+    pageNumber.current = currentPage - 1;
     fetchNewPage();
-  }, []);
+  }, [dispatch]);
 
   useEffect(() => {
     if (activeSearch) {
