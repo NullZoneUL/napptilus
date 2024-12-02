@@ -4,7 +4,7 @@ import oompaLoompasDetailReducer from './detail';
 import { configureStore } from '@reduxjs/toolkit';
 
 const store = configureStore({
-  middleware: getDefaultMiddleware => getDefaultMiddleware(), //.concat(logger),
+  middleware: getDefaultMiddleware => getDefaultMiddleware().concat(logger),
   reducer: {
     oompaLoompas: oompaLoompaReducer,
     oompaLoompasDetail: oompaLoompasDetailReducer,
