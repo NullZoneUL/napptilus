@@ -6,6 +6,8 @@
   "subtitle": "There are more than 100k",
   "female": "Female",
   "male": "Male",
+  "notFound": "This page is not available",
+  "backMain": "Go back",
   "error": {
     "general": "An error occurred",
     "response": "Error fetching data...",

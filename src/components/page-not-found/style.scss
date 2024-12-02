@@ -1,0 +1,42 @@
+@use 'screen_ratios' as *;
+
+.not-found-container {
+  color: var(--np-black-ligh);
+  text-align: center;
+  font-size: 1.2em;
+  margin-top: 50px;
+
+  & > a {
+    font-size: 1em;
+    text-decoration: none;
+    color: black;
+    top: 30px;
+    position: relative;
+    transition: opacity 0.2s ease-out;
+    font-weight: bold;
+
+    &:hover {
+      opacity: 0.5;
+    }
+  }
+}
+
+@media screen and (min-width: $tabletMinWidth) {
+  .not-found-container {
+    font-size: 1.8em;
+
+    & > a {
+      font-size: 1.2em;
+    }
+  }
+}
+
+@media screen and (min-width: $computerMinWidth) {
+  .not-found-container {
+    font-size: 2em;
+
+    & > a {
+      font-size: 1.8em;
+    }
+  }
+}
